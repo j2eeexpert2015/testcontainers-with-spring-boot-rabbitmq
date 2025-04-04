@@ -1,0 +1,21 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual
+        default-requeue-rejected: false
+        retry:
+          enabled: false
+
+rabbitmq:
+  queues:
+    order-queue: orders.queue
+    order-dlq: orders.dlq
+  exchanges:
+    order-exchange: orders.exchange
+  routing-keys:
+    order-routing-key: orders.routingKey
