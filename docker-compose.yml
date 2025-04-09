@@ -1,0 +1,15 @@
+services:
+  rabbitmq:
+    # Use the same image as your tests for consistency
+    image: rabbitmq:3-management
+    container_name: rabbitmq_local
+    ports:
+      # Default AMQP port
+      - "5672:5672"
+      # Management UI port
+      - "15672:15672"
+    environment:
+      # Default username from application.yml
+      RABBITMQ_DEFAULT_USER: guest
+      # Default password from application.yml
+      RABBITMQ_DEFAULT_PASS: guest
